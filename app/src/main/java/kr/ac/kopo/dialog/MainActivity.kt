@@ -14,17 +14,15 @@ class MainActivity : AppCompatActivity() {
         var btnDialog = findViewById<Button>(R.id.btnDialog)
 
         btnDialog.setOnClickListener {
+            // 라디오 버튼 목록 대화상자
             var placesArr = arrayOf("에펠탑", "빅뱅", "자유의 여신상")
+            var selectArr = booleanArrayOf(false, true, false)
             var dialog = AlertDialog.Builder(this@MainActivity)
             dialog.setTitle("좋아하는 핫플")
             dialog.setIcon(R.drawable.logo)
-            dialog.setItems(placesArr) { dialog2, which ->
+            dialog.setSingleChoiceItems(placesArr, 1) { dialog1, which ->
                 btnDialog.text = placesArr[which]
             }
-//            dialog.setPositiveButton("확인") { dialog1, which ->
-//                Toast.makeText(this@MainActivity,
-//                    "확인 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show()
-//            }
             dialog.setPositiveButton("닫기", null)
             dialog.show()
         }
